@@ -13,13 +13,15 @@ public class principal {
 			int idade;
 			double carteira;
 
+			
+			inicio:
 			while (true) {
 
-				System.out.println("\nBEM VINDO\n\n----->PROMOÇÕES DE PASSAGENS<-----\n\nDeseja comprar passagem?"
+				System.out.println("BEM VINDO\n\n----->PROMOÇÕES DE PASSAGENS<-----\n\nDeseja comprar passagem?"
 						+ "\n s = sim, n = não ");
-				resposta1 = scan.nextLine();
+				resposta1 = scan.next();
 
-				if (resposta1.equals("s") || resposta1.equals("S")) {
+				if (resposta1.toUpperCase().equals("S")) {
 					System.out.println("\nDigite o seu nome");
 					nome = scan.next();
 
@@ -36,8 +38,8 @@ public class principal {
 							"\nCarteira: " + c1.getCarteira());
 					
 					if (c1.getIdade() < 18) {
-						System.out.println("\nIdade não permitida para compra de passagem\nSistema encerrado!!!\n");
-						break;
+						System.out.println("\nIdade não permitida para compra de passagem\n");
+						continue inicio;
 					}
 					
 					System.out.println("\n\nSelecione o destino\n\n1- São Paulo\n2- Rio de Jaineiro\n"
@@ -49,8 +51,8 @@ public class principal {
 						p1.passagemSP();
 						
 						if (c1.getCarteira() < p1.Valor) {
-							System.out.println("\nValor em carteira insuficiente!!!\nSistema encerrado!!!");
-							break;
+							System.out.println("\nValor em carteira insuficiente!!!");
+							continue inicio;
 						}
 						else {
 							double valorFinal;
@@ -74,7 +76,7 @@ public class principal {
 						
 						if (c1.getCarteira() < p1.Valor) {
 							System.out.println("Valor em carteira insuficiente!!!\n");
-							break;
+							continue inicio;
 						}
 						else {
 							double valorFinal;
@@ -98,7 +100,7 @@ public class principal {
 						
 						if (c1.getCarteira() < p1.Valor) {
 							System.out.println("Valor em carteira insuficiente!!!\n");
-							break;
+							continue inicio;
 						}
 						else {
 							double valorFinal;
